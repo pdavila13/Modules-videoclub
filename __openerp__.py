@@ -1,22 +1,25 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "videoclub",
+    'name': "VideoClub",
 
-    'summary': """
-        Short (1 phrase/line) summary of the module's purpose, used as
-        subtitle on modules listing or apps.openerp.com""",
+    'summary': """Manage movies and games""",
 
     'description': """
-        Long description of module's purpose
+        VideoClub module for Movies and Games:
+            - Partners
+            - Rental
+            - Article
+            - Movies
+            - Games
     """,
 
-    'author': "Your Company",
-    'website': "http://www.yourcompany.com",
+    'author': "Paolo Dávila",
+    'website': "http://www.paolodavila.com",
 
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/master/openerp/addons/base/module/module_data.xml
     # for the full list
-    'category': 'Uncategorized',
+    'category': 'Test',
     'version': '0.1',
 
     # any module necessary for this one to work correctly
@@ -26,6 +29,7 @@
     'data': [
         # 'security/ir.model.access.csv',
         'templates.xml',
+        'views/videoclub.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

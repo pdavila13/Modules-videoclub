@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="item_form_view">
+            <field name="name">item.form</field>
+            <field name="model">videoclub.item</field>
+            <field name="arch" type="xml">
+                <form string="Item Form">
+                    <sheet>
+                        <group>
+                            <field name="code"/>
+                        </group>
+                        <notebook>
+                            <page string="Type">
+                                <field name="type"/>
+                            </page>
+                            <page string="About">
+                                This is an example of notebooks
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="item_search_view">
+            <field name="name">item.search</field>
+            <field name="model">videoclub.item</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="code"/>
+                    <field name="numCopy"/>
+                    <field name="type"/>
+                    <field name="gender"/>
+                </search>
+            </field>
+        </record>
+
+        <!-- window action -->
+        <!--
+            The following tag is an action definition for a "window action",
+            that is an action opening a view or a set of views
+        -->
+        <record model="ir.actions.act_window" id="item_list_action">
+            <field name="name">Item</field>
+            <field name="res_model">videoclub.item</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create the first item
+                </p>
+            </field>
+        </record>
+
+        <!-- top level menu: no parent -->
+        <menuitem id="main_videoclub_menu" name="Video Club"/>
+        <!-- A first level in the left side menu is needed
+             before using action= attribute -->
+        <menuitem id="videoclub_menu" name="Video Club"
+                  parent="main_videoclub_menu"/>
+        <!-- the following menuitem should appear *after*
+             its parent videoclub_menu and *after* its
+             action item_list_action -->
+        <menuitem id="items_menu" name="Item" parent="videoclub_menu"
+                  action="item_list_action"/>
+        <!-- Full id location:
+             action="videoclub.item_list_action"
+             It is not required when it is the same module -->
+
+        <!-- movie form view -->
+        <record model="ir.ui.view" id="movie_form_view">
+            <field name="name">movie.form</field>
+            <field name="model">videoclub.movie</field>
+            <field name="arch" type="xml">
+                <form string="Movie Form">
+                    <sheet>
+                        <group>
+                            <field name="title"/>
+                            <field name="director"/>
+                            <field name="year"/>
+                            <field name="duration"/>
+                        </group>
+                        <label for="movie_ids"/>
+                        <field name="movie_ids"/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="movie_list_action">
+            <field name="name">Movies</field>
+            <field name="res_model">videoclub.movie</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="movie_menu" name="Movies"
+                  parent="videoclub_menu"
+                  action="movie_list_action"/>
+    </data>
+</openerp>
