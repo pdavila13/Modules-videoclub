@@ -74,11 +74,15 @@
             <field name="arch" type="xml">
                 <form string="Movie Form">
                     <sheet>
+                        <group string="General">
+                            <field name="active"/>
+                        </group>
                         <group>
                             <field name="title"/>
                             <field name="director"/>
                             <field name="year"/>
                             <field name="duration"/>
+                            <field name="start_date"/>
                         </group>
                         <label for="movie_ids"/>
                         <field name="movie_ids"/>

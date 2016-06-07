@@ -10,13 +10,13 @@ class Item(models.Model):
     type = fields.Text()
     gender = fields.Text()
 
-
-
 class Movie(models.Model):
     _name = 'videoclub.movie'
 
     title = fields.Text()
     director = fields.Text()
     year = fields.Char(string="Year film", required=True)
+    start_date = fields.Date(default=fields.Date.today)
     duration = fields.Float(digits=(6, 2), help="Duration in minutes")
     movie_ids = fields.Many2many('res.partner', string="Movies")
+    active = fields.Boolean(default=True)
